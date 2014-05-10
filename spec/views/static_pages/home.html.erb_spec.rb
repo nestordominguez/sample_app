@@ -1,15 +1,13 @@
 require 'spec_helper'
 
 describe "static_pages/home.html.erb" do
-	let(:titulo_base) {"Ruby on Rails Tutorial Sample App | "}
+  subject { page }
+	let(:titulo_base) {"Ruby on Rails Tutorial Sample App "}
   describe "Home pages" do
-  	before { visit static_pages_home_path }
+  	before { visit root_path }
 
-    it "should have the content 'Sample App'" do
-      expect(page).to have_content('Sample App')
-    end
-    it "should have the title 'Home'" do
-      expect(page).to have_title("#{titulo_base}Home")
-    end
+    it {should have_content('Sample App')}
+    it {should have_title("#{titulo_base}")}
+    it {should_not have_title("home")}
   end
 end

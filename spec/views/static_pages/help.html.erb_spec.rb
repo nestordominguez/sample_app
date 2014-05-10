@@ -2,15 +2,12 @@ require 'spec_helper'
 
 describe "static_pages/help.html.erb" do
 	let(:tit) {"Ruby on Rails Tutorial Sample App | "}
+  subject { page }
   
   describe "Help" do
-  	before { visit static_pages_help_path }
+  	before { visit help_path }
 
-  	it "should have content 'Help'" do
-  	  expect(page).to have_content('Help')
-  	end
-  	it "should have the title 'Help'" do
-      expect(page).to have_title("#{tit}Help")
-    end
+  	it {should have_content('Help')}
+  	it {should have_title("#{tit}Help")}
   end
 end
